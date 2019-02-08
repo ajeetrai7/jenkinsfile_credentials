@@ -18,6 +18,7 @@ pipeline {
 
     }
 		sh 'set -x'
+		sh 'date'
 
 		docker.withRegistry('', 'docker-hub-credentials') {
 		sh "docker login -u ${username1} -p ${password1}"
