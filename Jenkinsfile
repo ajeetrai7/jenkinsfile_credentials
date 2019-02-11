@@ -1,4 +1,4 @@
-pipeline {
+ pipeline {
     agent {
         docker { image 'ubuntu' }
 	}
