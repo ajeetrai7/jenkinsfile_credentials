@@ -21,9 +21,9 @@ pipeline {
 		sh 'set -x'
 		sh 'date'
 
-		docker.withRegistry('', 'docker-hub-credentials') {
+		
 		sh "docker login -u ${username1} -p ${password1}"
-		myImage.push("${env.BUILD_NUMBER}")
+	
 		myImage.push("latest")		
 
 		sh 'docker --version'
@@ -35,4 +35,4 @@ pipeline {
         }
     }
 }
-}
+
