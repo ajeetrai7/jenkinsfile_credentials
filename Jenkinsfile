@@ -30,6 +30,7 @@ pipeline {
 
                 sh "echo $username"
                 sh "echo $password"
+		sh 'docker images'
             }
         }
     }
