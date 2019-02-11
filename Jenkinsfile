@@ -3,8 +3,7 @@ pipeline {
         docker { image 'ubuntu' }
 	}
 
-     environment {
- 
+     environment { 
   withCredentials([usernamePassword(credentialsId: 'jenkins_credentials', usernameVariable: 'username', passwordVariable: 'password')])
      }
 
@@ -20,7 +19,6 @@ pipeline {
 		sh 'set -x'
 		sh 'date'
 
-		
 		sh "docker login -u ${username1} -p ${password1}"
 	
 		myImage.push("latest")		
