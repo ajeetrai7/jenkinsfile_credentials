@@ -5,8 +5,7 @@ pipeline {
 
      environment { 
 
-   withCredentials([usernamePassword(credentialsId: 'jenkins_credentials', usernameVariable: 'username', passwordVariable: 'password')])
-
+   withCredentials([usernamePassword(credentialsId: 'jenkins_credentials', passwordVariable: 'password1', usernameVariable: 'username1')])
      }
 
     stages {
