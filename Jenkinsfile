@@ -4,7 +4,9 @@ pipeline {
 	}
 
      environment { 
+
   withCredentials([usernamePassword(credentialsId: 'jenkins_credentials', usernameVariable: 'username', passwordVariable: 'password')])
+
      }
 
     stages {
@@ -16,6 +18,7 @@ pipeline {
    withCredentials([usernamePassword(credentialsId: 'docker_login', usernameVariable: 'username1', passwordVariable: 'password1')])
 
     }
+	
 		sh 'set -x'
 		sh 'date'
 
