@@ -13,6 +13,7 @@ pipeline {
 //               withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'github_credential', usernameVariable: 'username1',                   passwordVariable: 'password1']]) 				
 
 //			}
+		stage('Build'){
 		steps{                    
                 
 
@@ -28,7 +29,7 @@ pipeline {
 	
 	//	steps {
 	//		script 'git commit -s -m "1st-commit" '
-	//		}	
+			}	
 		}
 		
 	    }
