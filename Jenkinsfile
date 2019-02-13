@@ -8,11 +8,11 @@ pipeline {
 			}
 		}
 		stage(build){
-		    environment{
-	
-               withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'github_credential', usernameVariable: 'username1',                   passwordVariable: 'password1']]) 				
+//		    environment{
+//	
+//               withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'github_credential', usernameVariable: 'username1',                   passwordVariable: 'password1']]) 				
 
-			}
+//			}
 		steps{                    
                 
 
