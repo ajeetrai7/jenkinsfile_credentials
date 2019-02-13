@@ -7,23 +7,16 @@ pipeline {
                 	echo "Hello-World"
 			}
 		}
-
-		     stage('git-integration'){
-		environment{
-			 git(
-  		     url: 'https://github.com/AJEETRAI707/private_repo.git',
-   			    credentialsId: 'github_credential',
-      			    branch: "${master}"
-				    )
+		stage(build){
+		    environment{
 	
-
-
-//                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'github_credential', usernameVariable: 'username1', //                  passwordVariable: 'password1']]) 				
+               withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'github_credential', usernameVariable: 'username1',                   passwordVariable: 'password1']]) 				
 
 			}
 		steps{                    
                 
                       sh '''
+			set -x
 			pwd
                         git clone  https://github.com/AJEETRAI707/122.git
               	        cd 122/
