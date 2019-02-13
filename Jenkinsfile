@@ -1,4 +1,4 @@
-// vi:set ts=2 shiftwidth=2 et
+ // vi:set ts=2 shiftwidth=2 et
 def ORG = "mayadataio"
 def REPO = "cluster-register"
 def DOCKER_HUB_REPO = "https://index.docker.io/v1/"
@@ -71,7 +71,7 @@ env.pass="ka879707"
             } else if (env.BRANCH_NAME == 'master') {
                 sh(returnStdout: true, script: "docker login --username=mayabot --password=M4Y4@openebs && docker push ${ORG}/${REPO}:${env.BN}")
 
-                sh(returnStdout: true, script: "mkdir -p ${HOME}/${ORG}/${REPO}/${BRANCH_NAME}/")
+                 sh(returnStdout: true, script: "mkdir -p ${HOME}/${ORG}/${REPO}/${BRANCH_NAME}/")
                 sh(returnStdout: true, script: "rm -f ${HOME}/${ORG}/${REPO}/${BRANCH_NAME}/*")
                 sh(returnStdout: true, script: "touch ${HOME}/${ORG}/${REPO}/${BRANCH_NAME}/${env.BN}")
             }
