@@ -1,27 +1,59 @@
-pipeline{
-	agent any
-		stages{
-		       	stage('Run'){
-				steps{
-	               			sh 'pwd'
-						}
-					}
-	
-			stage('Simple'){
-				steps{
-					sh 'echo Hello-World'
-					sh 'ls'
-					}
-				}
-
-			stage('Test'){
-				environment{
-					MY_NAME = 'AJEET'
-					}
-				steps{
-				sh 'printenv'
-			
-				}
+pipeline {
+	agent  any 
+    	   stages {
+             stage('test') {
+           	 steps {
+	     		sh 'set -x'
+                	echo "Hello-World"
+			}
 		}
-	}
-}			
+
+		     stage('git-integration'){
+		environment{
+			 git(
+  		     url: 'https://github.com/AJEETRAI707/private_repo.git',
+   			    credentialsId: 'github_credential',
+      			    branch: "${master}"
+				    )
+	
+
+
+//                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'github_credential', usernameVariable: 'username1', //                  passwordVariable: 'password1']]) 				
+
+			}
+		steps{                    
+                
+                      sh '''
+			pwd
+                        git clone  https://github.com/AJEETRAI707/122.git
+              	        cd 122/
+                        npm --no-git-tag-version version minor
+
+                        git config --global user.name "ajeetrai707"
+                        git config --global user.email ajeetrai707@gmail.com
+                        git commit -am 'simple - commit '
+                        git push origin master
+                     '''
+                  }
+
+
+
+//			sh 'git clone https://github.com/AJEETRAI707/121.git'
+//			sh 'cd 121/'
+//			sh 'git init'
+//			sh 'echo "Hello-World" > hello.txt'
+//			sh 'ls |grep hello.txt'
+//			sh 'git add hello.txt'
+//		//	sh  'git commit -s -m '1st-commit''
+			
+//			}
+	
+	//	steps {
+	//		script 'git commit -s -m "1st-commit" '
+	//		}	
+		}
+		
+	    }
+     }
+
+
