@@ -29,13 +29,10 @@ pipeline {
 		//	sh  'git commit -s -m '1st-commit''
 			
 			}
-	
-	//	steps {
-	//		script 'git commit -s -m "1st-commit" '
-			}	
 		}
 		
 	    }
      }
+}
 
 
