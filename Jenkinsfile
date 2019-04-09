@@ -10,7 +10,7 @@ pipeline {
 		stage(build){
 		    environment{
 	
-               withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'github_credential', usernameVariable: 'username1',                   passwordVariable: 'password1']]) 				
+               withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'github_credential', usernameVariable: 'username1', passwordVariable: 'password1']]) 				
 		
 			echo ${username1}
 			echo ${password1}
@@ -25,14 +25,13 @@ pipeline {
 			sh 'git init'
 			sh 'echo "Hello-World" > hello.txt'
 			sh 'ls |grep hello.txt'
-			sh 'git add hello.txt'
 		//	sh  'git commit -s -m '1st-commit''
 			
 			}
 		}
 		
-	    }
-     }
+	  }
+   }
 }
 
 
