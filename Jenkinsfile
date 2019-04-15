@@ -14,8 +14,8 @@ pipeline {
 		
 			echo ${username1}
 			echo ${password1}
-
-//			}
+				}
+			}
 		stage('Simple-test'){
 		steps{                    
                 
@@ -25,13 +25,19 @@ pipeline {
 			sh 'git init'
 			sh 'echo "Hello-World" > hello.txt'
 			sh 'ls |grep hello.txt'
-			
+				 echo ${username1}
+				 echo ${password1}
 			}
 		}
-		
-	  }
-   }
-}
+		stage('Push to docker-hub'){
+			steps {
+        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+            app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
+        }
+			}
+		} 
+	}
 }
 
 
