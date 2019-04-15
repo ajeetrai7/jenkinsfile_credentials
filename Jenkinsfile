@@ -10,7 +10,7 @@ pipeline {
 		stage(build){
 		    environment{
 	
-               withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'github_credential', usernameVariable: 'username1', passwordVariable: 'password1']]) 				
+               withCredentials([[UsernamePassword (credentialsId: 'github_credential', usernameVariable: 'username1', passwordVariable: 'password1')]]) 				
 		
 			echo ${username1}
 			echo ${password1}
@@ -36,7 +36,8 @@ pipeline {
             app.push("latest")
         }
 			}
-		} 
+		}
+ 
 	}
 }
 
