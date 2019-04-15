@@ -7,19 +7,17 @@ pipeline {
                 	echo "Hello-World"
 			}
 		}
-		stage(build){
-		    environment{
-	
-               withCredentials([[UsernamePassword (credentialsId: 'github_credential', usernameVariable: 'username1', passwordVariable: 'password1')]]) 				
-		
-			echo ${username1}
-			echo ${password1}
-				}
-			}
+
+		environment {
+			 withCredentials( [usernamePassword( credentialsId: 'github_credential', 
+                                      usernameVariable: 'USERNAME1', 
+                                      passwordVariable: 'PASSWORD1')])
+		}
 		stage('Simple-test'){
 		steps{                    
                 
-
+			sh 'echo ${USERNAME1}'
+			sh 'echo ${PASSWORD1}'
 			sh 'git clone https://github.com/AJEETRAI707/121.git'
 			sh 'cd 121/'
 			sh 'git init'
