@@ -7,11 +7,14 @@ pipeline {
                 	echo "Hello-World"
 			}
 		}
-
+		stage ('Building-credentials'){
 		environment {
 			 withCredentials( [usernamePassword( credentialsId: 'github_credential', 
                                       usernameVariable: 'USERNAME1', 
                                       passwordVariable: 'PASSWORD1')])
+							sh 'echo ${USERNAME1}'
+							sh 'echo ${PASSWORD1}'
+		}
 		}
 		stage('Simple-test'){
 		steps{                    
