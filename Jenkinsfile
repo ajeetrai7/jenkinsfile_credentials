@@ -10,10 +10,10 @@ pipeline {
 		stage(build){
 		    environment{
 	
-               withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'github_credential', usernameVariable: 'username', passwordVariable: 'password']]) 				
+               withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'github_credential', usernameVariable: 'username1', passwordVariable: 'password1']]) 				
 		
-			echo ${username}
-			echo ${password}
+			echo ${username1}
+			echo ${password1}
 
 //			}
 		stage('Simple-test'){
