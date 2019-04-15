@@ -16,7 +16,7 @@ pipeline {
 			echo ${password1}
 
 //			}
-		stage('Build'){
+		stage('Simple-test'){
 		steps{                    
                 
 
@@ -25,7 +25,6 @@ pipeline {
 			sh 'git init'
 			sh 'echo "Hello-World" > hello.txt'
 			sh 'ls |grep hello.txt'
-		//	sh  'git commit -s -m '1st-commit''
 			
 			}
 		}
