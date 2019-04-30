@@ -34,9 +34,18 @@ pipeline {
 				 echo ${password1}
 			}
 		}
+		stage ('Docker-credential'){
+			steps {
+				// This step should not normally be used in your script. Consult the inline help for details.
+				withDockerRegistry(credentialsId: 'docker_login', url: 'docker push ajeetrai/ubuntu:tagname') {
+    			sh "docker push ajeetrai/ubuntu:latest"
+
+				}
+			}
+		}
 		stage('Push to docker-hub'){
 			steps {
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+        	docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
