@@ -7,6 +7,12 @@ pipeline {
                 	echo "Hello-World"
 			}
 		}
+		stege ('checkout'){
+			steps {
+				echo 'Checking out SCM'
+				checkout scm
+			}
+		}	
 		stage ('Building-credentials'){
 		environment {
 		withCredentials([usernamePassword(credentialsId: 'github_credential', usernameVariable: 'USERNAME1', passwordVariable: 'PASSWORD1')]) {
