@@ -37,8 +37,8 @@ pipeline {
 		stage ('Docker-credential'){
 			steps {
 				// This step should not normally be used in your script. Consult the inline help for details.
-				withDockerRegistry(credentialsId: 'docker_login', url: 'docker push ajeetrai/ubuntu:tagname') {
-    			sh "docker push ajeetrai/ubuntu:latest"
+				withDockerRegistry(credentialsId: 'docker_login', url: 'docker pull ajeetrai/ubuntu:tagname') {
+    			sh "docker pull ajeetrai/ubuntu:latest"
 
 				}
 			}
