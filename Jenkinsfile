@@ -38,8 +38,10 @@ pipeline {
 			sh 'ls |grep hello.txt'
 				 echo ${username1}
 				 echo ${password1}
+			
 			}
 		}
+		
 		stage ('Docker-credential'){
 			steps {
 				// This step should not normally be used in your script. Consult the inline help for details.
