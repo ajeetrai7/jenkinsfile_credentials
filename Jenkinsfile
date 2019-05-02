@@ -18,9 +18,9 @@ pipeline {
 		withCredentials([usernamePassword(credentialsId: 'github_credential', usernameVariable: 'USERNAME1', passwordVariable: 'PASSWORD1')]) {
   		// available as an env variable, but will be masked if you try to print it out any which way
 		  // note: single quotes prevent Groovy interpolation; expansion is by Bourne Shell, which is what you want
-		  sh 'echo $PASSWORD1'
+		   sh 'echo $PASSWORD1'
 		  // also available as a Groovy variable
-		  echo USERNAME1
+		   echo USERNAME1
   		  // or inside double quotes for string interpolation
   		  echo "username is $USERNAME1"
 			}
@@ -49,14 +49,14 @@ pipeline {
 				}
 			}
 		}
-		stage('Push to docker-hub'){
+	/*	stage('Push to docker-hub'){
 			steps {
         	docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
 			}
-		}
+		}*/
  
 	}
 }
