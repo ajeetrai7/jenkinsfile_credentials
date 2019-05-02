@@ -3,10 +3,10 @@ pipeline {
 	environment {
 	withCredentials([usernamePassword(credentialsId: 'github_credential', passwordVariable: 'PSSWORD1', usernameVariable: 'USERNAME1')]) {
     // some block
-	sh "echo $USERNAME1"
-	sh "echo $PASSWORD1"
+	sh "echo ${USERNAME1}"
+	sh "echo ${PASSWORD1}"
  
-	echo "username is $USERNAME1"
+	echo "username is ${USERNAME1}"
   }
 	}
 
@@ -21,16 +21,7 @@ pipeline {
   		//  echo "username is $USERNAME1"
 		//}
 
-    	stages {
-		stage ('checkout'){
-			steps {
-				echo 'Checking out SCM'
-				checkout scm
-			}
-		}	
-	//	stage ('Building-credentials'){
-
-	//	}
+    	stages {	
 		stage('Simple-test'){
 		steps{                    
                 
@@ -41,8 +32,8 @@ pipeline {
 			sh 'git init'
 			sh 'echo "Hello-World" > hello.txt'
 			sh 'ls |grep hello.txt'
-				 echo ${username1}
-				 echo ${password1}	
+				 echo "${username1}"
+				 echo "${password1}"	
 			}
 		}
 		stage ('Docker-credential'){
