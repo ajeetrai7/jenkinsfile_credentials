@@ -21,8 +21,8 @@ pipeline {
 		  sh 'echo $PASSWORD1'
 		  // also available as a Groovy variable
 		  echo USERNAME
-  		// or inside double quotes for string interpolation
-  		echo "username is $USERNAME"
+  		  // or inside double quotes for string interpolation
+  		  echo "username is $USERNAME"
 }
 		}
 		}
