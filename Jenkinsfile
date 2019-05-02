@@ -1,5 +1,5 @@
 pipeline {
-	agent  any{
+	agent  any
 	//environment {
 	withCredentials([usernamePassword(credentialsId: 'github_credential', passwordVariable: 'PSSWORD1', usernameVariable: 'USERNAME1')]) {
     // some block
@@ -8,7 +8,6 @@ pipeline {
  
 	echo "username is ${USERNAME1}"
   }
-	}
 	//}
 
 	//	environment {
