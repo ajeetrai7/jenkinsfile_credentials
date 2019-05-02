@@ -1,19 +1,6 @@
 pipeline {
-	agent  any 
-    	   stages {
-             stage('test') {
-           	 steps {
-	     		sh 'set -x'
-                	echo "Hello-World"
-			}
-		}
-		stage ('checkout'){
-			steps {
-				echo 'Checking out SCM'
-				checkout scm
-			}
-		}	
-		stage ('Building-credentials'){
+	agent  any
+
 		environment {
 		withCredentials([usernamePassword(credentialsId: 'github_credential', usernameVariable: 'USERNAME1', passwordVariable: 'PASSWORD1')]) 
   		// available as an env variable, but will be masked if you try to print it out any which way
@@ -23,8 +10,17 @@ pipeline {
 		//   echo USERNAME1
   		  // or inside double quotes for string interpolation
   		//  echo "username is $USERNAME1"
-		}
-		}
+		} 
+    	stages {
+		stage ('checkout'){
+			steps {
+				echo 'Checking out SCM'
+				checkout scm
+			}
+		}	
+	//	stage ('Building-credentials'){
+
+	//	}
 		stage('Simple-test'){
 		steps{                    
                 
