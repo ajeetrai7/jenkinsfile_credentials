@@ -2,11 +2,11 @@ pipeline {
 	agent  any
 	  environment {
 
-	withCredentials([usernamePassword(credentialsId: 'github_credential', passwordVariable: 'PSSWORD1', usernameVariable: 'USERNAME1')]) {
-	sh "echo ${USERNAME1}"
-	sh "echo ${PASSWORD1}"
+	withCredentials([usernamePassword(credentialsId: 'github_credential', passwordVariable: 'Password', usernameVariable: 'Username')]) {
+	sh "echo ${Username}"
+	sh "echo ${Password}"
     
-	echo "username is ${USERNAME1}"
+	echo "username is ${Username}"
   		}
 	  }
 
@@ -28,15 +28,15 @@ pipeline {
 		stage('Simple-test'){
 		steps{                    
                 
-			sh 'echo ${USERNAME1}'
-			sh 'echo ${PASSWORD1}'
+			sh 'echo ${Username}'
+			sh 'echo ${Password}'
 			sh 'git clone https://github.com/AJEETRAI707/121.git'
 			sh 'cd 121/'
 			sh 'git init'
 			sh 'echo "Hello-World" > hello.txt'
 			sh 'ls |grep hello.txt'
-				 echo "${username1}"
-				 echo "${password1}"	
+				 echo "${Username}"
+				 echo "${Password}"	
 			}
 		}
 		stage ('Docker-credential'){
